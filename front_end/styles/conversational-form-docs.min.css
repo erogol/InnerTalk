@@ -769,3 +769,6 @@ main.content .switch-btn .switch .slider:before {
         bottom: 5px
     }
 }
+.bitcoin-tooltip .bitcoin-tooltip-content{
+    font-size: small !important;
+}

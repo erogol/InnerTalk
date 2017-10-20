@@ -7,6 +7,8 @@
 		<link rel="stylesheet" href="styles/conversational-form-docs.min.css">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="https://cf-4053.kxcdn.com/conversational-form/0.9.6/conversational-form.min.js" crossorigin></script>
 	</head>
 	<body>
@@ -72,12 +74,14 @@
 					<h2>
 						www.erogol.com - @erogol
 					</h2>
-					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal_form">
+					<h2>
+					Donate with <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal_form">
 							<input type="hidden" name="cmd" value="_s-xclick">
 							<input type="hidden" name="hosted_button_id" value="4X9K43V3DVL2N">
-							<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-							<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+							<input type="image" style="float:left; padding-top:10px; vertical-align:middle;" src="images/paypal.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" width="25%">
 					</form>
+					<img src="images/bitcoin.png" id="bitcoin" style="float:left; padding-left:10px; padding-top:10px; vertical-align:middle;" width="25%"/>
+					</h2>
 				</article>
 			</section>
 
@@ -157,11 +161,29 @@
 					console.log("Loading questions...");
 					get_questions();
 					console.log("Activating form...")
+					// activate cf 
 					var conversationalForm = window.cf.ConversationalForm.startTheConversation({
 						formEl: document.getElementById("form"),
 						context: document.getElementById("cf-context"),
 						flowStepCallback: callbacks_route
 					})
+
+					// add bitcoin tooltip action
+					$('#bitcoin').on({
+					  "click": function() {
+					    $(this).tooltip({items: "#bitcoin", content: "13XxUt6Y5PWA29ve3kGvDJdV1As762v428"});
+					    $(this).tooltip("open");
+					  },
+					  "mouseout": function() {      
+					     $(this).tooltip("disable");   
+					  }
+					});
+					$('#bitcoin').tooltip(
+					    {"classes": 
+					   		{"ui-tooltip": "bitcoin-tooltip", 
+					   		 "ui-tooltip-content": "bitcoin-tooltip-content"}
+					   	}
+					);
 				});
 			</script>
 
