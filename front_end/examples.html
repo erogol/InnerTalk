@@ -72,6 +72,12 @@
 					<h2>
 						www.erogol.com - @erogol
 					</h2>
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="paypal_form">
+							<input type="hidden" name="cmd" value="_s-xclick">
+							<input type="hidden" name="hosted_button_id" value="4X9K43V3DVL2N">
+							<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+							<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+					</form>
 				</article>
 			</section>
 
@@ -93,12 +99,12 @@
 
 							// Add questions to form 
 							for(i=0; i < qs.length; i++){
-								$('form').append('<input cf-questions="'+qs[i]['question']+'" name="q'+i+'">');
+								$('#form').append('<input cf-questions="'+qs[i]['question']+'" name="q'+i+'">');
 							}
 
 							// Add dowload notice
 							msg = "Do you want to download all our conversation as a text?"
-							$('form').append(
+							$('#form').append(
 								'<fieldset cf-questions="'+msg+'" id="down_question"> \
 									<label for="down-yes">Yes \
 									<input type="radio" name="cfc-down" id="down-yes" value="down-yes"> \
@@ -111,7 +117,7 @@
 
 							// Last message
 							msg = "Ok that's all for now. Let me know if you like to start over!! Otherwise take care and good luck!! ;) "
-							$('form').append(
+							$('#form').append(
 								'<fieldset cf-questions="'+msg+'" id="last_question"> \
 									<label for="again-yes">Yeap start again... \
 									<input type="radio" name="cfc-end" id="again-yes" value="again-yes"> \
@@ -131,7 +137,7 @@
 		             	// submit the form
 		             	if(val == 'down-yes'){
 							console.log('Download ...')
-							$('form').attr('action', 'http://127.0.0.1:5555/judge')
+							$('#form').attr('action', 'http://127.0.0.1:5555/judge')
 									 .attr('method', 'post')
 									 .submit()
 									 .attr('action', '')
