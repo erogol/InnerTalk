@@ -1,0 +1,8 @@
+X Return questions from server
+X Remove disable button (hocky cover but done)
+X Click to edit previous
+X Return the text after conversation
+X Ask use to download at the end
+X Reload the CF for the next session
+X Insert form to the db
+- Add donation bar
